@@ -3,15 +3,17 @@
 }
 /* Colours chosen at http://www.sessions.edu/color-calculator */
 header {
-	background-color: #957bab;
-	margin: 0;
-	padding: 0;
+	background-color:#957bab;
+	margin:0;
+	padding:0.1em;
 }
 body {
-	background-color: #ab947b;
+	background-color:#ab947b;
+	margin:0;
+	padding:0;
 }
 footer, section {
-	background-color: #a9ab7b;
+	background-color:#a9ab7b;
 	margin: 0;
 	padding: 0.5em;
 }
