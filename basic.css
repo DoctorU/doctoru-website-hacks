@@ -2,13 +2,20 @@
 	font-family: "Arial", sans-serif;
 }
 /* Colours chosen at http://www.sessions.edu/color-calculator */
+/* Use these complimentary colours: 
+ * #957bab
+ * #ab947b
+ * #a9ab7b
+ * white
+ * black
+ */
 header {
 	background-color:#957bab;
 	margin:0;
 	padding:0.1em;
 }
 body {
-	background-color:#ab947b;
+	background-color:white;
 	margin:0;
 	padding:0;
 }
