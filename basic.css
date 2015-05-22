@@ -1,5 +1,13 @@
 * {
 	font-family: "Arial", sans-serif;
-	border: solid 1px gray;
-	padding: 0.1ex;
+}
+/* Colours chosen at http://www.sessions.edu/color-calculator */
+header {
+	background-color: #957bab;
+}
+body {
+	background-color: #ab947b;
+}
+footer, section {
+	background-color: #a9ab7b;
 }
