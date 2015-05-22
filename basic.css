@@ -1,3 +1,5 @@
 * {
-font-family: "Arial", sans-serif;
+	font-family: "Arial", sans-serif;
+	border: solid 1px gray;
+	padding: 0.1ex;
 }
