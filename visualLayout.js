@@ -1,4 +1,5 @@
 $(document).ready(function(){});
 $("*").on("mouseover", function() {
-    console.log(this.attr("id") + " " + this.attr("class"));
+    var _this = $(this);
+    console.log(_this.attr("id") + " " + _this.attr("class"));
 });
