@@ -4,10 +4,14 @@
 /* Colours chosen at http://www.sessions.edu/color-calculator */
 header {
 	background-color: #957bab;
+	margin: 0;
+	padding: 0;
 }
 body {
 	background-color: #ab947b;
 }
 footer, section {
 	background-color: #a9ab7b;
+	margin: 0;
+	padding: 0.5em;
 }
