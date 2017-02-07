@@ -33,11 +33,18 @@ myApp.controller('RedundancyController', ['$scope',function($scope) {
     console.log("calculate", data);
     self.saveData(data);
     c.noticeEntitlement = self.noticeEntitlement(c.yos);
-    c.weekly = c.salary / 52.0;
+    c.weeklyFromSalary = c.salary / 52.0;
+    c.weekly = self.min(c.weeklyFromSalary, 479.0);
     c.entitlement = self.redundancyEntitlement(c.age, c.yos);
     c.noticePayment= c.noticeEntitlement * c.weekly;
     c.redundancyPayment= c.entitlement * c.weekly;
 
+  };
+  self.max = function(val1, val2) {
+    return val1 > val2? val1 : val2;
+  };
+  self.min = function(val1, val2) {
+    return val1 < val2? val1 : val2;
   };
   self.saveData = function (data) {
     var c = $scope.calculation;
