@@ -1,8 +1,60 @@
-<html>
-<body>
+<html ng-app='redundancyApp'>
+
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script>
+var myApp = angular.module('redundancyApp', []);
+myApp.controller('RedundancyController', function($scope) {
+  var self = this;
+  function noticeEntitlement(yos) {
+    if(yos < 2}  return 1;
+    if(yos >12} return 12;
+    return yos;
+  };
+  $scope.noticeEntitlement = noticeEntitlement;
+  $scope.redundancyEntitlement = function(age, yos) {
+    return 5;
+  };
+  $scope.calculate = function(data) {
+    $scope.age = data.age;
+    $scope.yos = data.YOS;
+    $scope.salary = data.Salary;
+    $scope.notice = data.notice;
+    $scope.noticeEntitlement = noticeEntitlement(yos);
+    $scope.weekly = salary/52.0;
+    $scope.entitlement = redundancyEntitlement(age, yos);
+  };
+  $scope.data.Age=20;
+  $scope.data.YOS=2;
+  $scope.data.Ssalary=26000;
+  $scope.data.notice=4;
+  $scope.calculate($scope.data);
+});
+</script
+</head>
+<body ng-controller="RedundancyController">
 <form>
-<label for="age">Age</label><input id="age"/>
-<label for="Years Of Service">Years Of Service</label><input id="Years Of Service"/>
-<label for="Salary">Salary</label><input id="Salary"/>
+<label for="age">Age</label><input id="age" ng-model="data.Age"/>
+<label for="Years Of Service">Years Of Service</label><input id="Years Of Service" ng-model="data.YOS"/>
+<label for="Salary">Salary</label><input id="Salary" ng-model="data.Salary"/>
+<label for="Notice Period (Weeks)">Notice Period (Weeks)</label><input id="Notice Period (Weeks)" ng-model="data.notice"/>
+<button ng-click="calculate(data)">Calculate</button>
 </form>
+<div id="Summary">
+<div>Age: {{age}}</div>
+<div>Years of Service: {{yos}</div>
+<div>Salary: {{salary}}</div>
+<div>
+<div id="interim Calculations">
+<h2>Intermediate Calculations</h2>
+
+<div>Weekly Pay: <span id="weekly">{{weekly|number:0}}</span></div>
+<div>Notice Entitlement: <span>{{noticeEntitlement}}</span>
+<div>Redundancy Entitlement: <span>{{entitlement}}</span>
+</div>
+<div id="Calculated Redundancy">
+<h2>Calculated Redundancy</h2>
+<div>Redundancy Value: <span id="redundancyValue"></span></div>
+<div>Notice Payment: {{NoticeEntitlement * Weekly}}
+</div>
 </body></html>
