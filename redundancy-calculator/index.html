@@ -4,57 +4,62 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 <script>
 var myApp = angular.module('redundancyApp', []);
-myApp.controller('RedundancyController', function($scope) {
+myApp.controller('RedundancyController', ['$scope',function($scope) {
   var self = this;
-  function noticeEntitlement(yos) {
-    if(yos < 2}  return 1;
-    if(yos >12} return 12;
+  self.noticeEntitlement = function(yos) {
+    if(yos < 2)  return 1;
+    if(yos >12) return 12;
     return yos;
   };
-  $scope.noticeEntitlement = noticeEntitlement;
-  $scope.redundancyEntitlement = function(age, yos) {
+  self.redundancyEntitlement = function(age, yos) {
     return 5;
   };
-  $scope.calculate = function(data) {
-    $scope.age = data.age;
-    $scope.yos = data.YOS;
-    $scope.salary = data.Salary;
-    $scope.notice = data.notice;
-    $scope.noticeEntitlement = noticeEntitlement(yos);
-    $scope.weekly = salary/52.0;
-    $scope.entitlement = redundancyEntitlement(age, yos);
+  self.calculate = function(data) {
+    var c = $scope.calculation;
+    console.log("calculate", data);
+    self.saveData(data);
+    c.noticeEntitlement = self.noticeEntitlement(c.yos);
+    c.weekly = c.salary / 52.0;
+    c.entitlement = self.redundancyEntitlement(c.age, c.yos);
+    c.noticePayment= c.noticeEntitlement * c.weekly;
+    c.redundancyPayment= c.entitlement * c.weekly;
+
   };
-  $scope.data.Age=20;
-  $scope.data.YOS=2;
-  $scope.data.Ssalary=26000;
-  $scope.data.notice=4;
-  $scope.calculate($scope.data);
-});
+  self.saveData = function (data) {
+    var c = $scope.calculation;
+    c.age = data.age;
+    c.yos = data.yos;
+    c.salary = data.salary;
+    c.notice = data.notice;
+  };
+  $scope.calculation={};
+  self.calculate({age:20,yos:2,salary:26000,notice:4});
+}]);
 </script
 </head>
-<body ng-controller="RedundancyController">
+<body ng-controller="RedundancyController as $ctrl">
 <form>
-<label for="age">Age</label><input id="age" ng-model="data.Age"/>
-<label for="Years Of Service">Years Of Service</label><input id="Years Of Service" ng-model="data.YOS"/>
-<label for="Salary">Salary</label><input id="Salary" ng-model="data.Salary"/>
+<label for="age">Age</label><input id="age" ng-model="data.age"/>
+<label for="Years Of Service">Years Of Service</label><input id="Years Of Service" ng-model="data.yos"/>
+<label for="Salary">Salary</label><input id="Salary" ng-model="data.salary"/>
 <label for="Notice Period (Weeks)">Notice Period (Weeks)</label><input id="Notice Period (Weeks)" ng-model="data.notice"/>
-<button ng-click="calculate(data)">Calculate</button>
+<button ng-click="$ctrl.calculate(data)">Calculate</button>
 </form>
 <div id="Summary">
-<div>Age: {{age}}</div>
-<div>Years of Service: {{yos}</div>
-<div>Salary: {{salary}}</div>
+<div>Age: {{calculation.age}}</div>
+<div>Years of Service: {{calculation.yos}}</div>
+<div>Salary: {{calculation.salary}}</div>
 <div>
 <div id="interim Calculations">
 <h2>Intermediate Calculations</h2>
 
-<div>Weekly Pay: <span id="weekly">{{weekly|number:0}}</span></div>
-<div>Notice Entitlement: <span>{{noticeEntitlement}}</span>
-<div>Redundancy Entitlement: <span>{{entitlement}}</span>
+<div>Weekly Pay: <span id="weekly">{{calculation.weekly|number:0}}</span></div>
+<div>Notice Entitlement: <span>{{calculation.noticeEntitlement}}</span>
+<div>Redundancy Entitlement: <span>{{calculation.entitlement}}</span>
 </div>
 <div id="Calculated Redundancy">
 <h2>Calculated Redundancy</h2>
-<div>Redundancy Value: <span id="redundancyValue"></span></div>
-<div>Notice Payment: {{NoticeEntitlement * Weekly}}
+<div>Redundancy Value: <span id="redundancyValue">&pound;{{calculation.redundancyPayment|number:2}}</span></div>
+<div>Notice Payment: &pound;{{calculation.noticePayment|number:2}}
 </div>
 </body></html>
