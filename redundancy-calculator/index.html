@@ -53,13 +53,28 @@ myApp.controller('RedundancyController', ['$scope',function($scope) {
     c.salary = data.salary;
     c.notice = data.notice;
   };
+  $scope.selectOption = function() {
+    console.log($scope.predefinedOption);
+    $scope.data=$scope.options[$scope.predefinedOption];
+    self.calculate($scope.data);
+  };
   $scope.calculation={};
-  self.calculate({age:20,yos:2,salary:26000,notice:4});
+  $scope.options=[
+    {age:20,yos:2,salary:26000,notice:4, id:0},
+    {age:30,yos:3,salary:36000,notice:4, id:1},
+    {age:40,yos:4,salary:46000,notice:4,id:2}
+  ];
+  $scope.data=$scope.options[2];
+  self.calculate($scope.data);
 }]);
 </script
 </head>
 <body ng-controller="RedundancyController as $ctrl">
 <form>
+<label for="preselect">Preselect values</label>
+<select ng-change="selectOption()" ng-model="predefinedOption" ng-options="value.id as value.salary for value in options">
+  <option>--</option>
+</select>
 <label for="age">Age</label><input id="age" ng-model="data.age"/>
 <label for="Years Of Service">Years Of Service</label><input id="Years Of Service" ng-model="data.yos"/>
 <label for="Salary">Salary</label><input id="Salary" ng-model="data.salary"/>
