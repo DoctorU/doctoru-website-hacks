@@ -12,7 +12,21 @@ myApp.controller('RedundancyController', ['$scope',function($scope) {
     return yos;
   };
   self.redundancyEntitlement = function(age, yos) {
-    return 5;
+    var ageRemaining = age;
+    var entitlement = 0;
+    do {
+      if(ageRemaining > 41 ) {
+        entitlement += 1.5;
+      } else
+      if (ageRemaining > 22 ) {
+        entitlement += 1.0;
+      } else {
+        entitlement += 0.5;
+      }
+      ageRemaining--;
+    }
+    while(--yos > 0);
+    return entitlement;
   };
   self.calculate = function(data) {
     var c = $scope.calculation;
