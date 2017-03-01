@@ -25,11 +25,12 @@
 <button ng-click="$ctrl.calculate(data)">Calculate</button>
 </form>
 <div id="Summary">
-<div>Age: {{calculation.age}}</div>
-<div>Years of Service: {{calculation.yos}}</div>
-<div>Salary: {{calculation.salary}}</div>
+<div>Age: {{data.age}}</div>
+<div>Years of Service: {{data.yos}}</div>
+<div>Salary: {{data.salary}}</div>
+<div>Notice: {{data.notice}}</div>
 <div>
-<div id="interim Calculations">
+<div id="interim Calculations" class='calculations'>
   <h2>Statutory Award</h2>
   <div>Weekly Pay: <span>&pound;{{statutory.weekly|number:2}}</span><span ng-show="statutory.weeklyCapped"> (Capped)</span></div>
   <div>Notice Entitlement (weeks): <span>{{statutory.noticeWeeks}}</span></div>
@@ -42,7 +43,7 @@
   <div>Weekly Pay: <span>&pound;{{calculation.weekly|number:2}}</span></div>
   <div>Notice Entitlement (weeks): <span>{{calculation.noticeWeeks}}</span></div>
   <div>Redundancy Entitlement (weeks): <span>{{calculation.redundancyWeeks}}</span></div>
-  <div>Notice Entitlement (value, un-taxed): <span>&pound;{{calculation.noticePayment|number:2}}</span></div>
-  <div>Redundancy Entitlement (value, pre-tax): <span>&pound;{{calculation.redundancyPayment|number:2}}</span></div>
+  <div>Notice Entitlement (value, pre-tax): <span>&pound;{{calculation.noticePayment|number:2}}</span> <em class="info">Notice Payment is treated as normal pay and is liable to the usual NIC and PAYE deductions.</em></div>
+  <div>Redundancy Entitlement (value, tax-free): <span>&pound;{{calculation.redundancyPayment|number:2}}</span><em class="info">Redundancy Payments are tax free below a £30k threshold.</em></div>
 </div>
 </body></html>

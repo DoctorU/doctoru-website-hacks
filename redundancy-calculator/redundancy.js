@@ -28,7 +28,6 @@ myApp.controller('RedundancyController', ['$scope',function($scope) {
     return entitlement;
   };
   self.calculate = function(data) {
-    self.saveData(data);
     console.log("calculate", data);
     self.calculateStatutory(data, $scope.statutory);
     self.calculateOptimal(data, $scope.calculation);
@@ -59,16 +58,13 @@ myApp.controller('RedundancyController', ['$scope',function($scope) {
   self.min = function(val1, val2) {
     return val1 < val2? val1 : val2;
   };
-  self.saveData = function (data) {
-    $scope.data = data;
-  };
   $scope.selectOption = function() {
     console.log($scope.predefinedOption);
     $scope.data=angular.copy($scope.options[$scope.predefinedOption]);
     self.calculate($scope.data);
   };
   $scope.calculation={};
-  $scope.statutory = {};
+  $scope.statutory={};
   $scope.options=[
     {age:20,yos:1,salary:26000,notice:4, id:0},
     {age:30,yos:3,salary:36000,notice:4, id:1},

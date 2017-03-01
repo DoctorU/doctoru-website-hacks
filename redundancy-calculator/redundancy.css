@@ -8,3 +8,15 @@ input, select, button {
 input {
   border: 2px solid;
 }
+.calculations div {
+  float:left;
+  clear:left;
+  margin: 0.3em;
+}
+em.info {
+  display:block;
+  margin-left: 2em;
+}
+.calculations h2 {
+  clear:both;
+}
