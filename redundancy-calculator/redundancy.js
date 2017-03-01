@@ -8,28 +8,30 @@ myApp.controller('RedundancyController', ['$scope',function($scope) {
     return yos;
   };
   /* redundancy payment entitlement: complicated! */
-  self.redundancyEntitlement = function(age, yos) {
+  self.statRedundancyEntitlement = function(age, yos) {
     var ageRemaining = age;
     var entitlement = 0;
-    do {
-      if(ageRemaining > 41 ) {
-        entitlement += 1.5;
-      } else
-      if (ageRemaining > 22 ) {
-        entitlement += 1.0;
-      } else {
-        entitlement += 0.5;
+    if(yos >= 2) { //only entitled to redundancy if working for 2 years or more.
+      do {
+        if(ageRemaining > 41 ) {
+          entitlement += 1.5;
+        } else
+        if (ageRemaining > 22 ) {
+          entitlement += 1.0;
+        } else {
+          entitlement += 0.5;
+        }
+        ageRemaining--;
       }
-      ageRemaining--;
+      while(--yos > 0);
     }
-    while(--yos > 0);
     return entitlement;
   };
   self.calculate = function(data) {
     self.saveData(data);
     console.log("calculate", data);
-    self.calculateOptimal(data, $scope.calculation);
     self.calculateStatutory(data, $scope.statutory);
+    self.calculateOptimal(data, $scope.calculation);
   };
   self.calculateStatutory = function (data, c) {
     var weeklyFromSalary = data.salary / 52.0;
@@ -37,7 +39,7 @@ myApp.controller('RedundancyController', ['$scope',function($scope) {
     c.weeklyCapped = (c.weekly >= 479.0);
     c.noticeWeeks = self.statNoticeEntitlement(data.yos);
     c.noticePayment = c.noticeWeeks * c.weekly;
-    c.redundancyWeeks = self.redundancyEntitlement(data.age, data.yos);
+    c.redundancyWeeks = self.statRedundancyEntitlement(data.age, data.yos);
     c.redundancyPayment= self.min(c.redundancyWeeks * c.weekly, 14370.0);
     c.redundancyCapped = (c.redundancyPayment >= 14370.0);
     console.log("calculateStatutory", c);
@@ -47,7 +49,7 @@ myApp.controller('RedundancyController', ['$scope',function($scope) {
     c.weekly = weeklyFromSalary;
     c.noticeWeeks = self.max(self.statNoticeEntitlement(data.yos), data.notice);
     c.noticePayment= c.noticeWeeks * c.weekly;
-    c.redundancyWeeks = self.redundancyEntitlement(data.age, data.yos);
+    c.redundancyWeeks = self.statRedundancyEntitlement(data.age, data.yos);
     c.redundancyPayment= c.redundancyWeeks * c.weekly;
     console.log("calculateOptimal", c);
   };
