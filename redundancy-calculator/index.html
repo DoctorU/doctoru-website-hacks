@@ -13,15 +13,15 @@
     The values shown here are based on the gov.uk guidelines <a href="https://www.gov.uk/redundant-your-rights/redundancy-pay">Redundancy</a> and <a href="https://www.gov.uk/redundant-your-rights/notice-periods">Notice</a> Pay, for redundancy after 6 April 2016.
     However, they also include non-statutory values, i.e., where the weekly salary value is not capped, nor the notice period</a>
   <p>
-<form>
+<form name='inputData'>
 <label for="preselect">Preselect values</label>
 <select ng-change="selectOption()" ng-model="predefinedOption" ng-options="value.id as value.salary for value in options">
   <option>--</option>
 </select>
-<label for="age">Age</label><input id="age" ng-model="data.age"/>
-<label for="Years Of Service">Years Of Service</label><input id="Years Of Service" ng-model="data.yos"/>
-<label for="Salary">Salary</label><input id="Salary" ng-model="data.salary"/>
-<label for="Notice Period (Weeks)">Notice Period (Weeks)</label><input id="Notice Period (Weeks)" ng-model="data.notice"/>
+<label for="age">Age</label><input id="age" ng-model="data.age" type="number"/>
+<label for="Years Of Service">Years Of Service</label><input id="Years Of Service" ng-model="data.yos" type="number"/>
+<label for="Salary">Salary</label><input id="Salary" ng-model="data.salary" type="number"/>
+<label for="Notice Period (Weeks)">Notice Period (Weeks)</label><input id="Notice Period (Weeks)" ng-model="data.notice" type="number"/>
 <button ng-click="$ctrl.calculate(data)">Calculate</button>
 </form>
 <div id="Summary">
