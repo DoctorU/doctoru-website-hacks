@@ -1,0 +1,19 @@
+{
+  "name": "doctoru.github.io",
+  "version": "1.0.0",
+  "description": "This is the default for me to generate my own local website, with tools that take no time.",
+  "main": "visualLayout.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0"
+  }
+}

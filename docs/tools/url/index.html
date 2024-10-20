@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URL encode/decode</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.slate.min.css"
+    />
+    <link rel="stylesheet" href="/css/main.css" />
+  </head>
+  <body class="container">
+    <header>
+      <h1>URL encode/decode</h1>
+      <nav>
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/tools">Tools</a></li>
+          <li><a href="/about">About</a></li>
+        </ol>
+      </nav>
+    </header>
+    <article>
+	<form role='grid'>
+		<fieldset>
+			<legend>Plain</legend>
+			<textarea id='t_plain'></textarea>
+			<button id='b_encode'>Encode&gt;</button>
+			<button id='b_encode_again' title="Copies the Encoded values to the Plain value and encodes it again!">Encode again&gt;</button>
+			<button id='b_encode_clear'>Clear</button>
+		</fieldset>
+		<fieldset>
+			<legend>Encoded</legend>
+			<button id='b_decode'>&lt;Decode</button>
+			<button id='b_decode_again' title="Copies the Encoded values to the Plain value and encodes it again!">&lt;Decode again</button>
+			<button id='b_decode_clear'>Clear</button>
+			<textarea id='t_encoded'></textarea>
+		</fieldset>
+	</form>
+</article>
+<script type='module' src='/js/url_encoding.mjs'></script
+
+  </body>
+</html>

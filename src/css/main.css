@@ -1,0 +1,10 @@
+body {
+	/* background-color: grey; */
+}
+nav {
+	border-radius: 0.2rem;
+	border: solid 0.2rem var(--pico-border-color);
+}
+ol li {
+	decoration: none;
+}
