@@ -1,19 +1,23 @@
 ---
 title: Base64 encode/decode
-layout: home
 ---
 <article>
+	<p>A simple tool for encoding/decoding text with base64.</p>
 	<form role='grid'>
 		<fieldset>
 			<legend>Plain</legend>
 			<textarea id='t_plain'></textarea>
-			<button id='b_encode'>Encode&gt;</button>
+			</fieldset>
+			<fieldset class="grid">
+				<button id='b_encode'>Encode&gt;</button>
 			<button id='b_encode_clear'>Clear</button>
 		</fieldset>
-		<fieldset>
+		<fieldset class="grid">
 			<legend>Encoded</legend>
 			<button id='b_decode'>&lt;Decode</button>
 			<button id='b_decode_clear'>Clear</button>
+		</fieldset>
+		<fieldset>
 			<textarea id='t_encoded'></textarea>
 		</fieldset>
 	</form>

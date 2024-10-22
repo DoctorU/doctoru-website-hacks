@@ -1,10 +1,44 @@
-body {
-	/* background-color: grey; */
-}
 nav {
-	border-radius: 0.2rem;
-	border: solid 0.2rem var(--pico-border-color);
+  border-radius: 0.2rem;
+  border: solid 0.2rem var(--pico-border-color);
+	box-shadow: inset 0 0 2rem var(--pico-primary-focus);
 }
-ol li {
-	decoration: none;
+nav ol li a:after {
+  padding-left: 0.2rem;
+  display: inline-block;
+}
+#home:after {
+  content: "\1F3E1";
+}
+#tools:after {
+  content: "\1F6E0";
+}
+#about:after {
+  content: "\1F6C8";
+}
+#blog:after {
+  content: "\1F9FB";
+}
+
+.article {
+  filter: drop-shadow(0 0 0.2rem darkgrey);
+}
+aside {
+  max-width: 25%;
+}
+footer {
+	text-align: center;
+	box-shadow: inset 0 0 2rem var(--pico-primary-focus);
+	border-radius: 0.3rem;
+}
+footer p {
+	display: inline;
+	/* padding: 1rem; */
+}
+footer p:after {
+	content: '|';
+}
+footer p:last-child:after {
+	content: '';
+	content: none;
 }

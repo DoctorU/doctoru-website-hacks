@@ -1,5 +1,4 @@
 ---
-layout: home
-title: doctoru.github.io
+title: Welcome
 ---
-
+Welcome to my little bit of github on the web.

@@ -1,24 +1,42 @@
+---
+title_suffix: doctoru.github.io
+---
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>{{ title }}</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.slate.min.css"
-    />
-    <link rel="stylesheet" href="/css/main.css" />
-  </head>
-  <body class="container">
-    <header>
-      <h1>{{ title }}</h1>
-      <nav>
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/tools">Tools</a></li>
-          <li><a href="/about">About</a></li>
-        </ol>
-      </nav>
-    </header>
-    {{ content | safe }}
-  </body>
+
+<head>
+	<title>{{ title }} | {{title_suffix}}</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.slate.min.css" />
+	<link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body class="container">
+	<header>
+		<h1>{{ title }} </h1>
+		<nav>
+			<ol>
+				<li><a href="/" role="button" id="home">Home</a></li>
+				<li><a href="/tools" role="button" id="tools"> Tools</a></li>
+				<li><a href="/about" role="button" id="about">About</a></li>
+				<li><a href="/blog" role="button" id="blog">Blog</a></li>
+			</ol>
+		</nav>
+	</header>
+	<main>
+		<article>
+
+			{{ content | safe }}
+		</article>
+	</main>
+	<footer>
+		<p>
+			&copy; 2024 Steve Hobdell
+		</p>
+		<p>
+			Styling courtesey of <a href='https://picocss.com/'>picocss</a>
+		</p>
+		<p>Emojis sourced from <a href='https://unicode.org/emoji/charts/full-emoji-list.html'>Unicode.org</a></p>
+	</footer>
+</body>
+
 </html>

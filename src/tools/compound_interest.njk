@@ -1,0 +1,27 @@
+---
+title: Compound Interest Calculator
+---
+<p>My little ol' compound interest calculator!</p>
+<p>It's all client side. There's no validation, so you could break the form with math(s)!</p>
+<p>The compounded value is rounded to the nearest 2dp.</p>
+<h2>Input</h2>
+<form>
+	<fieldset>
+		<legend>Input Values</legend>
+		<label>Initial Amount:<input id='start_amt' type='number'></input></label>
+		<label>Interest Rate:<input id='int_rate' type='number' min='0.0' max='100.0'></input></label>
+		<label>Years<input id='years' type='number' /></label>
+	</fieldset>
+	<fieldset class='grid'>
+		<button type='button' id='b_calc'> Calculate</button>
+		<button type='button' id='b_clear'> Clear</button>
+	</fieldset>
+</form>
+<h2>Calculation Result</h2>
+<table>
+	<tr>
+		<th>Compounded Value:</th>
+		<td id='result'>???</td>
+	</tr>
+</table>
+<script src="/js/compound_interest.mjs"></script>
