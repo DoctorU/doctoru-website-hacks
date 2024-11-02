@@ -1,5 +1,6 @@
 ---
 title: Tools
+subtitle: Useful tools that I've created.
 ---
 
 I like to play around with html and javascript when I get the chance.
@@ -8,11 +9,15 @@ If I have enough time, then I can create specific tools.
 
 And if I have lots of time, then I will add them here.
 
-## online conversion utilities
+## Converters
 
-* [Base64 decoder/encoder](/tools/base64)
-* [URL decoder/encoder](/tools/url)
+{% for l in collections.converter %}
+* [{{l.data.title}}]({{l.url}})
+{%endfor%}
 
-## calculators
+## Calculators
 
-* [Compound Interest Calculator](/tools/compound_interest)
+{% for l in collections.calculator %}
+* [{{l.data.title}}]({{l.url}})
+{%endfor%}
+

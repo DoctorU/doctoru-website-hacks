@@ -1,0 +1,23 @@
+---
+title_suffix: doctoru.github.io
+layout: home
+---
+
+{% assign previousPost = collections.blog | getPreviousCollectionItem %}
+{% assign nextPost = collections.blog | getNextCollectionItem %}
+<nav class="blog_nav">
+	<ol>
+		<li>
+			{% if previousPost %}
+			&lt; <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a>
+		{% endif %}
+		</li>
+		<li><a href='/blog/'>Blog Top</a></li>
+		<li>
+			{% if nextPost %}
+			<a href="{{ nextPost.url }}">{{ nextPost.data.title }} &gt;</a>
+		{% endif %}
+		</li>
+	</ol>
+</nav>
+{{ content }}

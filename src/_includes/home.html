@@ -8,11 +8,11 @@ title_suffix: doctoru.github.io
 	<title>{{ title }} | {{title_suffix}}</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.slate.min.css" />
 	<link rel="stylesheet" href="/css/main.css" />
+	<link rel="stylesheet" href="/css/forms.css" />
 </head>
 
 <body class="container">
 	<header>
-		<h1>{{ title }} </h1>
 		<nav>
 			<ol>
 				<li><a href="/" role="button" id="home">Home</a></li>
@@ -21,21 +21,27 @@ title_suffix: doctoru.github.io
 				<li><a href="/blog" role="button" id="blog">Blog</a></li>
 			</ol>
 		</nav>
+		<h1>{{ title }} </h1>
+		<p>{{subtitle}}</p>
 	</header>
 	<main>
 		<article>
-
-			{{ content | safe }}
+			{{ content }}
 		</article>
 	</main>
 	<footer>
 		<p>
-			&copy; 2024 Steve Hobdell
+			&copy; {{ year }} Steve Hobdell
 		</p>
 		<p>
-			Styling courtesey of <a href='https://picocss.com/'>picocss</a>
+			Styling with <a href='https://picocss.com/'>picocss</a>
 		</p>
-		<p>Emojis sourced from <a href='https://unicode.org/emoji/charts/full-emoji-list.html'>Unicode.org</a></p>
+		<p>
+			Emojis from <a href='https://unicode.org/emoji/charts/full-emoji-list.html'>Unicode.org</a>
+		</p>
+		<p>
+			Extensive use made of the <a href='https://developer.mozilla.org/en-US/docs/Web'>Mozilla reference docs</a>
+		</p>
 	</footer>
 </body>
 

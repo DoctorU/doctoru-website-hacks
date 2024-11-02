@@ -1,0 +1,9 @@
+.error {
+	display:none;
+	visibility: hidden;
+}
+.error.invalid {
+	display:block;
+	visibility: inherit;
+	color: red;
+}
