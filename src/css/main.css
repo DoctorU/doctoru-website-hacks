@@ -55,3 +55,6 @@ footer p:last-child:after {
 	content: '';
 	content: none;
 }
+p {
+	text-align: justify;
+}

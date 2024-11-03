@@ -1,18 +1,25 @@
 ---
 title: Temperature
-draft: true
+subtitle: Convert a temperature between the 3 main unit systems.
 ---
-<p>Temperature Converter</p>
-<p>It's all client side. There's no validation, so you could break the form with math(s)!</p>
-<p>The compounded value is rounded to the nearest 2dp.</p>
-{{page.tags}}
+<p>
+	A temperature converter that converts a value from Celsuis, Fahrenheit or Kelvin (CFK) to CFK.
+	</p>
+	<p>
+		It's all client side. I've tried to use
+	<a href='https://picocss.com/docs/forms/input#validation-states'>pico CSS's
+		ARIA-compatible validation</a> where possible. Let me know if my ARIA could be improved.
+</p>
+<p>
+	Have fun with it!
+</p>
 <h2>Input</h2>
 <form id="form">
 	<fieldset>
 		<label>Temperature<span aria-label="required">*</span><input id='from_value' type='number' step="0.1"
 				name="from_value" required aria-required="true" aria-invalid="true" value="100"></input>
-				<small>Enter a temperature upto 1dp. </small>
-				</label>
+			<small>Enter a temperature upto 1dp. </small>
+		</label>
 	</fieldset>
 	<fieldset class="grid" aria-describedby="from_unit_message">
 		<legend>From<span aria-label="required">*</span></legend>
