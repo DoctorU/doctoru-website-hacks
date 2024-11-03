@@ -58,6 +58,8 @@
 		document.querySelectorAll(TO_UNIT_SEL).forEach((el, id)=> el.checked = id == 0);
 		setAriaInvalid(from_value, false);
 	});
+	b_clear.addEventListener('click', calculate_temperature);
+	
 	document.querySelectorAll("input").forEach(el =>{
 		el.addEventListener('input', alignValidators);
 		el.addEventListener('input', calculate_temperature);		
