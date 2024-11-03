@@ -1,0 +1,34 @@
+---
+title: Temperature
+draft: true
+---
+<p>Temperature Converter</p>
+<p>It's all client side. There's no validation, so you could break the form with math(s)!</p>
+<p>The compounded value is rounded to the nearest 2dp.</p>
+{{page.tags}}
+<h2>Input</h2>
+<form id="form">
+	<fieldset>
+		<label>Temperature<span aria-label="required">*</span><input id='from_value' type='number' step="0.1"
+				name="from_value" required aria-required="true" aria-invalid="true" value="100"></input>
+				<small>Enter a temperature upto 1dp. </small>
+				</label>
+	</fieldset>
+	<fieldset class="grid" aria-describedby="from_unit_message">
+		<legend>From<span aria-label="required">*</span></legend>
+		<label><input type='radio' name='from_unit' value='C' checked aria-invalid="false">&deg;C</label>
+		<label><input type='radio' name='from_unit' value='F' aria-invalid="false">F</label>
+		<label><input type='radio' name='from_unit' value='K' aria-invalid="false">K</label>
+	</fieldset>
+	<small id="from_unit_message">Select a 'From' temperature unit.</small>
+	<fieldset class="grid" aria-describedby="to_unit_message">
+		<legend>To<span aria-label="required">*</span></legend>
+		<label><input type='radio' name='to_unit' value='C' checked aria-invalid="false">&deg;C</label>
+		<label><input type='radio' name='to_unit' value='F' aria-invalid="false">F</label>
+		<label><input type='radio' name='to_unit' value='K' aria-invalid="false">K</label>
+	</fieldset>
+	<small id="to_unit_message">Select a 'To' unit.</small>
+	<label>Result: <input type='text' id='to_val' readonly='true'></label>
+	<button type='button' id='b_clear'>Clear</button>
+</form>
+<script src="/js/temperature.mjs"></script>
