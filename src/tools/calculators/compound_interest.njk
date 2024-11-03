@@ -44,35 +44,3 @@ title: Compound Interest Calculator
 	</fieldset>
 </form>
 <script src="/js/compound_interest.mjs"></script>
-<script>
-	//for all the input fields, match aria-invalid against element.valid
-	(function(){
-		const invalidProcess = (e) => {
-			e.target.ari
-		}
-		const inputs = document.querySelectorAll('input');
-		inputs.forEach((i)=> {
-			i.addEventListener('change', invalidProcess);
-		})
-
-	})()
-</script>
-<style>
-	#result, #start_amt {
-}
-	.usd {
-		background-image: var(--du-icon-usd);
-	}
-	.gbp {
-		background-image: var(--du-icon-gbp);
-	}
-	.eur {
-		background-image: var(--du-icon-eur);
-	}
-	root: {
-		--du-icon-usd: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke-width%3D%221.5%22%20stroke%3D%22currentColor%22%20class%3D%22size-6%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20d%3D%22M12%206v12m-3-2.818.879.659c1.171.879%203.07.879%204.242%200%201.172-.879%201.172-2.303%200-3.182C13.536%2012.219%2012.768%2012%2012%2012c-.725%200-1.45-.22-2.003-.659-1.106-.879-1.106-2.303%200-3.182s2.9-.879%204.006%200l.415.33M21%2012a9%209%200%201%201-18%200%209%209%200%200%201%2018%200Z%22%20%2F%3E%3C%2Fsvg%3E%0A");	
-		--du-icon-gbp: url("data:image/svg+xml,");	
-		--du-icon-eur: url("data:image/svg+xml,");	
-
-	}
-</style>
